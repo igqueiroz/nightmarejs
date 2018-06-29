@@ -1,7 +1,6 @@
 const Nightmare = require('nightmare')
-var nightmare = Nightmare({ show: false });
 
-  var express = require("express"),
+var express = require("express"),
     app = express(),
     bodyParser  = require("body-parser"),
     methodOverride = require("method-override");
@@ -123,6 +122,7 @@ app.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
+  var val;
   nightmare = Nightmare({
             show:true,
             'ignore-certificate-errors': true,
@@ -137,11 +137,14 @@ router.get('/', function(req, res) {
         .wait('#r1-0 a.result__a')
         .evaluate(() => document.querySelector('#r1-0 a.result__a').href)
         .end()
-        .then(res.send(console.log))
+        .then(
+          console.log
+        )
         .catch(error => {
           console.error('Search failed:', error)
         })
-       res.send("Hello "+req.query.nombre+"!");
+
+       
 });
 
 router.post('/source', function(req,res){
