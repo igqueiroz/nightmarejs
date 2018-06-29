@@ -1,5 +1,5 @@
 const Nightmare = require('nightmare')
-const nightmare = Nightmare({ show: false });
+var nightmare = Nightmare({ show: false });
 
   var express = require("express"),
     app = express(),
