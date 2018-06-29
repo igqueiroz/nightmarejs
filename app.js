@@ -1,5 +1,5 @@
 const Nightmare = require('nightmare')
-const nightmare = Nightmare({ show: false })
+const nightmare = Nightmare({ show: false });
 
   var express = require("express"),
     app = express(),
@@ -18,7 +18,6 @@ var recipe;
 var login_recipe;
 var selector;
 var cookies;
-var nightmare;
 
 function *login() {
   try {
