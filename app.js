@@ -1,5 +1,5 @@
 const Nightmare = require('nightmare')
-const nightmare = Nightmare({ show: false }
+const nightmare = Nightmare({ show: false })
 
   var express = require("express"),
     app = express(),
@@ -124,13 +124,7 @@ app.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-       res.send("Hello "+req.query.nombre+"!");
-});
-
-router.post('/source', function(req,res){
-   if (req.body.url) {
-    try {
-        nightmare = Nightmare({
+  nightmare = Nightmare({
             show:true,
             'ignore-certificate-errors': true,
             'webPreferences': {
@@ -148,6 +142,13 @@ router.post('/source', function(req,res){
         .catch(error => {
           console.error('Search failed:', error)
         })
+       res.send("Hello "+req.query.nombre+"!");
+});
+
+router.post('/source', function(req,res){
+   if (req.body.url) {
+    try {
+        
         recipe = req.body.url;
         // vo(source)(function(err,result){
         //     res.send(result);
